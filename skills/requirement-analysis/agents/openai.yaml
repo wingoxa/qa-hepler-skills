@@ -1,0 +1,4 @@
+interface:
+  display_name: "需求分析"
+  short_description: "分析、拆解并自动补全产品需求，支持 Jira ID"
+  default_prompt: "使用 $requirement-analysis 分析并自动补全这个需求；如输入 --jiraid，则先通过 Jira MCP 获取需求详情。"

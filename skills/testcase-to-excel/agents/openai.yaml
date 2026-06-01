@@ -1,0 +1,4 @@
+interface:
+  display_name: "用例转 Excel"
+  short_description: "按模板生成 Excel 测试用例文件"
+  default_prompt: "使用 $testcase-to-excel 将这些测试用例转换为 Excel 文件。"

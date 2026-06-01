@@ -1,0 +1,18 @@
+{
+  "name": "qa-hepler-skills",
+  "version": "0.1.0",
+  "description": "QA helper plugin for requirement analysis, functional test design, case file generation, and MeterSphere/CML import.",
+  "author": "black",
+  "skills": "skills",
+  "mcpServers": ".mcp.json",
+  "agents": [
+    "agents/qa-helper-agent.md"
+  ],
+  "commands": [
+    "commands/requirement.md",
+    "commands/testcase.md",
+    "commands/case-export.md",
+    "commands/case-import.md",
+    "commands/requirement-case.md"
+  ]
+}

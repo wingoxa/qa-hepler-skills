@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "cml-mcp": {
+      "command": "go",
+      "args": [
+        "run",
+        "-mod=mod",
+        "./cmd/cml-mcp"
+      ],
+      "cwd": "./mcp/cml-mcp",
+      "env": {
+        "CML_BASE_URL": "${CML_BASE_URL}",
+        "CML_TOKEN": "${CML_TOKEN}",
+        "CML_COOKIE": "${CML_COOKIE}",
+        "CML_PROJECT_ID": "${CML_PROJECT_ID}",
+        "CML_LOG_LEVEL": "${CML_LOG_LEVEL}"
+      }
+    }
+  }
+}

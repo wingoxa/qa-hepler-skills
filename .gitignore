@@ -1,0 +1,26 @@
+/*
+
+!/.gitignore
+!/README.md
+!/.mcp.json
+!/.codex-plugin/
+!/.codex-plugin/**
+!/.claude-plugin/
+!/.claude-plugin/**
+!/agents/
+!/agents/**
+!/commands/
+!/commands/**
+!/skills/
+!/skills/**
+!/mcp/
+!/mcp/**
+
+# Go build outputs and dependency cache/vendor snapshots
+/mcp/cml-mcp/cml-mcp
+/mcp/cml-mcp/vendor/
+
+# Local/editor noise
+.DS_Store
+*.log
+/tmp/.cache/

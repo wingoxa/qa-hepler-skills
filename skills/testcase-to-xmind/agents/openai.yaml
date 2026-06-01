@@ -1,0 +1,4 @@
+interface:
+  display_name: "用例转 XMind"
+  short_description: "按模板生成 XMind 测试用例导图"
+  default_prompt: "使用 $testcase-to-xmind 将这些测试用例转换为 XMind 导图。"

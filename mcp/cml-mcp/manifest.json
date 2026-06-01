@@ -1,0 +1,15 @@
+{
+  "name": "cml-mcp",
+  "version": "0.1.0",
+  "description": "MeterSphere 功能用例 MCP 服务：查询、新增、详情、更新、XMind/Excel 导入。",
+  "command": "go",
+  "args": ["run", "./cmd/cml-mcp"],
+  "cwd": "/Users/black/Desktop/codings/qa-hepler-skills/mcp/cml-mcp",
+  "env": {
+    "CML_BASE_URL": "MeterSphere base URL",
+    "CML_TOKEN": "Bearer token, optional when CML_COOKIE is used",
+    "CML_COOKIE": "Cookie header, optional when CML_TOKEN is used",
+    "CML_PROJECT_ID": "Default project id",
+    "CML_LOG_LEVEL": "debug, info, warn, error, or off"
+  }
+}

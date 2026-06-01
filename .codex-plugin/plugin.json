@@ -1,0 +1,36 @@
+{
+  "name": "qa-hepler-skills",
+  "version": "0.1.0",
+  "description": "QA helper plugin for requirement analysis, functional test design, case file generation, and MeterSphere/CML import.",
+  "author": {
+    "name": "black"
+  },
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "requirements",
+    "metersphere",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "QA Helper Skills",
+    "shortDescription": "需求分析、功能用例设计和用例导入",
+    "longDescription": "面向 QA 工作流的本地插件，提供需求自动补全、功能测试用例设计、Excel/XMind 用例文件生成，以及通过 cml-mcp 导入 MeterSphere/CML 的能力。",
+    "developerName": "black",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "MCP",
+      "Automation"
+    ],
+    "defaultPrompt": [
+      "分析需求并补全可测试规则",
+      "根据需求设计功能测试用例",
+      "生成 Excel 用例并导入平台"
+    ],
+    "brandColor": "#2563EB"
+  }
+}
