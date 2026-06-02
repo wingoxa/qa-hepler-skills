@@ -24,3 +24,5 @@
 .DS_Store
 *.log
 /tmp/.cache/
+.env
+mcp/cml-mcp/.env

@@ -1,6 +1,6 @@
 ---
 name: requirement-case
-description: 将需求分析、功能测试用例设计和测试用例导入串联成完整任务流。适用于用户要求从需求、PRD、用户故事、功能说明或接口说明出发，自动补全需求、设计功能测试用例，并生成 Excel 或 XMind 用例文件后通过 cml-mcp 导入 MeterSphere/CML。该 agent 会编排 $requirement-analysis、$functional-testing、$testcase-to-excel、$testcase-to-xmind 和 cml-mcp 的 case_import_excel/case_import_xmind 工具。
+description: 将需求分析、功能测试用例设计和测试用例导入串联成完整任务流。适用于用户要求从需求、PRD、用户故事、功能说明或接口说明出发，自动补全需求、设计功能测试用例，并通过选项 1 输出 XMind 或选项 2 输出 Excel 后通过 cml-mcp 导入 MeterSphere/CML。该 agent 会编排 $requirement-analysis、$functional-testing、$testcase-to-excel、$testcase-to-xmind 和 cml-mcp 的 case_import_excel/case_import_xmind 工具。
 ---
 
 # 需求到用例 Agent
@@ -29,7 +29,13 @@ description: 将需求分析、功能测试用例设计和测试用例导入串�
 ## 工作流程
 
 1. 创建临时缓存目录 `tmp/.cache`。如果目录不存在，先创建。
-2. 使用 `$requirement-analysis` 分析需求，补全目标、角色、流程、规则、字段、权限、异常、边界和验收标准。
+2. 使用 `$requirement-analysis` 分析需求，补全目标、角色、流程、规则、字段、权限、异常、边界和验收标准。触发需求分析时遵循来源选择：
+   ```text
+   1. 手动输入
+   2. Jira
+   3. TM
+   ```
+   用户选择 `1` 时等待其在对话框输入需求描述；选择 `2` 时要求输入 `jiraid` 并调用 jira-mcp 获取需求详情；选择 `3` 时要求输入 `tmid` 并调用 tm-mcp 获取需求详情。
 3. 将需求分析结果写入 `tmp/.cache/requirement-analysis-<需求标识>.md`，回复用户缓存文件路径和阶段摘要，然后等待用户调整或确认。
 4. 用户回复确认后，使用 `$functional-testing` 基于确认后的需求分析结果设计功能测试用例。
 5. 将功能测试用例结果写入 `tmp/.cache/functional-testing-<需求标识>.md`，回复用户缓存文件路径和阶段摘要，然后等待用户调整或确认。
@@ -42,10 +48,15 @@ description: 将需求分析、功能测试用例设计和测试用例导入串�
    - 标签
    - 用例等级
    - 备注
-7. 根据用户要求选择导入格式：
-   - 用户指定 Excel、xlsx 或表格导入时，使用 `$testcase-to-excel`。
-   - 用户指定 XMind、xmind 或脑图导入时，使用 `$testcase-to-xmind`。
-   - 用户未指定时，默认使用 Excel，因为模板字段更直接、导入结果更易排查。
+7. 根据用户要求选择导入导出格式：
+   - 用户指定 `1`、XMind、xmind、脑图或导图时，使用 `$testcase-to-xmind`。
+   - 用户指定 `2`、Excel、excel、execl、xlsx 或表格时，使用 `$testcase-to-excel`。
+   - 用户未指定时，必须先展示选项并等待用户选择：
+     ```text
+     1. 通过 XMind 输出
+     2. 通过 Excel 输出
+     ```
+   - 不要在用户未指定格式时自动默认 Excel。
 8. 生成用例文件：
    - Excel：调用 `skills/testcase-to-excel/scripts/build_excel.py`
    - XMind：调用 `skills/testcase-to-xmind/scripts/build_xmind.py`
@@ -115,6 +126,8 @@ tmp/.cache/case-import-bank-123.md
 尽量从用户输入中提取：
 
 - 需求文本、PRD、用户故事或接口说明
+- 需求描述来源：手动输入、Jira 或 TM
+- Jira ID 或 TM ID
 - 项目 ID
 - 导入格式：Excel 或 XMind
 - 是否覆盖已有用例
@@ -122,6 +135,23 @@ tmp/.cache/case-import-bank-123.md
 - 模块归属规则
 
 如果缺少项目 ID，应先检查是否已配置 `CML_PROJECT_ID`。如果没有配置，必须向用户索要项目 ID。
+
+## 导入导出选项
+
+用例文件生成、导入前检查和正式导入都使用同一组选项：
+
+1. 通过 XMind 输出
+   - 生成 `.xmind` 文件。
+   - 使用 `$testcase-to-xmind`。
+   - 导入平台时调用 `case_import_xmind`。
+2. 通过 Excel 输出
+   - 生成 `.xlsx` 文件。
+   - 使用 `$testcase-to-excel`。
+   - 导入平台时调用 `case_import_excel`。
+
+如果用户输入 `execl`，按 `Excel` 处理。
+
+如果用户未选择，应在功能测试用例确认后、生成文件前暂停并询问用户选择 `1` 或 `2`。
 
 ## 用例设计规则
 

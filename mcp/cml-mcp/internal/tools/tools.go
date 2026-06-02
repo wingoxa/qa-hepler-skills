@@ -90,7 +90,7 @@ func toolError(message string) *mcp.CallToolResult {
 }
 
 func Schema() []Definition {
-	authNote := "需要通过环境变量 CML_BASE_URL + CML_TOKEN 或 CML_COOKIE 配置 MeterSphere 访问。"
+	authNote := "需要通过环境变量 CML_BASE_URL + CML_ACCESS_KEY + CML_SIGNATURE 或 CML_COOKIE 配置 MeterSphere 访问。"
 	return []Definition{
 		{
 			"name":        "case_query",

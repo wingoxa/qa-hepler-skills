@@ -1,6 +1,6 @@
 ---
 name: testcase-to-excel
-description: 将功能测试用例、测试场景、手工 QA 用例、Markdown 表格、CSV/JSON 用例或普通文本用例转换为 Excel 测试用例文件。使用内置 Excel 模板 assets/excel_case.xlsx，按“用例名称、所属模块、标签、前置条件、步骤描述、预期结果、编辑模式、备注、用例等级”的列结构生成 .xlsx。适用于用户要求把测试用例转成 excel、生成测试用例表格、导出用例 xlsx、按模板产出 Excel 测试用例文件。
+description: 将功能测试用例、测试场景、手工 QA 用例、Markdown 表格、CSV/JSON 用例或普通文本用例转换为 Excel 测试用例文件。支持用户选择 `2. 通过 Excel 输出`，并兼容 `execl` 拼写。使用内置 Excel 模板 assets/excel_case.xlsx，按“用例名称、所属模块、标签、前置条件、步骤描述、预期结果、编辑模式、备注、用例等级”的列结构生成 .xlsx。适用于用户要求把测试用例转成 excel、生成测试用例表格、导出用例 xlsx、按模板产出 Excel 测试用例文件。
 ---
 
 # 用例转 Excel
@@ -10,6 +10,8 @@ description: 将功能测试用例、测试场景、手工 QA 用例、Markdown 
 使用此 skill 将测试用例整理成 Excel 文件。默认使用 `assets/excel_case.xlsx` 作为模板，保留模板 sheet、表头和基础样式。
 
 当用户提供的是非结构化文本、Markdown 表格、XMind 结构、普通测试场景或功能说明时，先整理为结构化用例，再生成 Excel。
+
+当用户选择 `2` 或表达“通过 Excel 输出”“通过 execl 输出”“通过表格输出”时，使用此 skill。
 
 ## 模板结构
 

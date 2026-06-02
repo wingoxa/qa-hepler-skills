@@ -1,6 +1,6 @@
 ---
 name: testcase-to-xmind
-description: 将功能测试用例、测试场景、手工 QA 用例、表格用例、Markdown 用例或结构化 JSON 用例转换为 XMind 导图文件。使用内置 XMind 模板 assets/xmind_case.xmind，按“功能用例 > 模块 > case > 前置条件/备注/标签/步骤描述/文本描述/用例等级”的结构生成导图。适用于用户要求把测试用例转成 xmind、生成 xmind 测试用例导图、导出测试用例脑图或按模板产出 .xmind 文件。
+description: 将功能测试用例、测试场景、手工 QA 用例、表格用例、Markdown 用例或结构化 JSON 用例转换为 XMind 导图文件。支持用户选择 `1. 通过 XMind 输出`。使用内置 XMind 模板 assets/xmind_case.xmind，按“功能用例 > 模块 > case > 前置条件/备注/标签/步骤描述/文本描述/用例等级”的结构生成导图。适用于用户要求把测试用例转成 xmind、生成 xmind 测试用例导图、导出测试用例脑图或按模板产出 .xmind 文件。
 ---
 
 # 用例转 XMind
@@ -10,6 +10,8 @@ description: 将功能测试用例、测试场景、手工 QA 用例、表格用
 使用此 skill 将测试用例整理成 XMind 导图。默认使用 `assets/xmind_case.xmind` 作为模板，保持模板的 XMind 旧版 XML 包格式和节点层级。
 
 当用户提供的是非结构化文本、Markdown 表格、Excel/CSV 表格或普通测试用例描述时，先整理为结构化用例，再生成 XMind。
+
+当用户选择 `1` 或表达“通过 XMind 输出”“通过脑图输出”“通过导图输出”时，使用此 skill。
 
 ## 模板结构
 

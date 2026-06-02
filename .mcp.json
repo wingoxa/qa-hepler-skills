@@ -10,7 +10,8 @@
       "cwd": "./mcp/cml-mcp",
       "env": {
         "CML_BASE_URL": "${CML_BASE_URL}",
-        "CML_TOKEN": "${CML_TOKEN}",
+        "CML_ACCESS_KEY": "${CML_ACCESS_KEY}",
+        "CML_SIGNATURE": "${CML_SIGNATURE}",
         "CML_COOKIE": "${CML_COOKIE}",
         "CML_PROJECT_ID": "${CML_PROJECT_ID}",
         "CML_LOG_LEVEL": "${CML_LOG_LEVEL}"

@@ -7,9 +7,12 @@
   "cwd": "/Users/black/Desktop/codings/qa-hepler-skills/mcp/cml-mcp",
   "env": {
     "CML_BASE_URL": "MeterSphere base URL",
-    "CML_TOKEN": "Bearer token, optional when CML_COOKIE is used",
-    "CML_COOKIE": "Cookie header, optional when CML_TOKEN is used",
+    "CML_ACCESS_KEY": "MeterSphere accessKey header",
+    "CML_SIGNATURE": "MeterSphere signature header",
+    "CML_COOKIE": "Cookie header, optional when accessKey/signature is not enough",
     "CML_PROJECT_ID": "Default project id",
-    "CML_LOG_LEVEL": "debug, info, warn, error, or off"
+    "CML_LOG_LEVEL": "debug, info, warn, error, or off",
+    "CML_MCP_HTTP_ADDR": "Optional HTTP SSE listen address, such as :8080",
+    "CML_MCP_PORT": "Optional HTTP SSE listen port"
   }
 }
